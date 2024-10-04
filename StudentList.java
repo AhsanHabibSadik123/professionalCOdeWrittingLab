@@ -4,12 +4,13 @@ import java.util.*;
 
 public class StudentList {
 	public static void main(String[] args) {
+		Constant constants = new Constant();
 		boolean isValidArg = true;
 		while (isValidArg) {
 			// Check arguments
 			if (args[0].equals("a")) {
 				isValidArg = false;
-				System.out.println("Loading data ...");
+				System.out.println(constants.LOADING_MESSAGE);
 				try {
 					BufferedReader s = new BufferedReader(
 							new InputStreamReader(new FileInputStream("students.txt")));
@@ -21,11 +22,11 @@ public class StudentList {
 				} catch (Exception e) {
 
 				}
-				System.out.println("Data Loaded.");
+				System.out.println(constants.LOADED_MESSAGE);
 			}
 			else if (args[0].equals("r")) {
 				isValidArg = false;
-				System.out.println("Loading data ...");
+				System.out.println(constants.LOADING_MESSAGE);
 				try {
 					BufferedReader s = new BufferedReader(
 							new InputStreamReader(
@@ -39,17 +40,17 @@ public class StudentList {
 				} catch (Exception e) {
 
 				}
-				System.out.println("Data Loaded.");
+				System.out.println(constants.LOADED_MESSAGE);
 			} 
 			else if (args[0].contains("+")) {
 				isValidArg = false;
-				System.out.println("Loading data ...");
+				System.out.println(constants.LOADING_MESSAGE);
 				try {
 					BufferedWriter s = new BufferedWriter(
 							new FileWriter("students.txt", true));
 					String t = args[0].substring(1);
 					Date d = new Date();
-					String df = "dd/mm/yyyy-hh:mm:ss a";
+					String df = constants.DATA_FORMATE;
 					DateFormat dateFormat = new SimpleDateFormat(df);
 					String fd = dateFormat.format(d);
 					s.write(", " + t + "\nList last updated on " + fd);
@@ -58,11 +59,11 @@ public class StudentList {
 
 				}
 
-				System.out.println("Data Loaded.");
+				System.out.println(constants.LOADED_MESSAGE);
 			} 
 			else if (args[0].contains("?")) {
 				isValidArg = false;
-				System.out.println("Loading data ...");
+				System.out.println(constants.LOADING_MESSAGE);
 				try {
 					BufferedReader s = new BufferedReader(
 							new InputStreamReader(
@@ -80,11 +81,11 @@ public class StudentList {
 				} catch (Exception e) {
 
 				}
-				System.out.println("Data Loaded.");
+				System.out.println(constants.LOADED_MESSAGE);
 			} 
 			else if (args[0].contains("c")) {
 				isValidArg = false;
-				System.out.println("Loading data ...");
+				System.out.println(constants.LOADING_MESSAGE);
 				try {
 					BufferedReader s = new BufferedReader(
 							new InputStreamReader(
@@ -107,7 +108,7 @@ public class StudentList {
 				} catch (Exception e) {
 
 				}
-				System.out.println("Data Loaded.");
+				System.out.println(constants.LOADED_MESSAGE);
 			}
 			else{
 				System.out.println("Invalid Argument. Please Enter a Valid Argument (a , r , c , ?studentName , +studentName)");
